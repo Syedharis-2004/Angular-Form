@@ -307,4 +307,9 @@ h1 {
   .background-image {
     height: 25vh;
   }
+  
+  .social-icons {
+    font-size: 1rem;
+    gap: 1rem;
+  }
 }
