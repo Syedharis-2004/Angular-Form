@@ -21,17 +21,23 @@ export class ContactFormComponent {
   constructor(private router: Router, private formDataService: FormDataService) {}
 
   onSubmit() {
-    console.log('Form Submitted!', this.formData);
-    alert('Thank you for contacting us!');
+    if (this.formData.fullName && this.formData.email && this.formData.message) {
+      this.formDataService.addQuery({ ...this.formData });
+      console.log('Form Saved!', this.formData);
+      alert('Thank you! Your query has been submitted.');
+      
+      // Reset form
+      this.formData = {
+        fullName: '',
+        email: '',
+        message: '',
+      };
+    } else {
+      alert('Please fill out all fields.');
+    }
   }
 
   navigateToQuery() {
-    if (!this.formData.fullName || !this.formData.email || !this.formData.message) {
-      alert('Please fill out all fields before viewing the query.');
-      return;
-    }
-    
-    this.formDataService.addQuery({ ...this.formData });
     this.router.navigate(['/query']);
   }
 }

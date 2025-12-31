@@ -117,29 +117,43 @@ h1 {
   background: #000;
   color: #fff;
   border: none;
-  padding: 1.2rem 3rem;
-  border-radius: 50px;
+  padding: 0;
+  width: 170px;
+  height: 70px;
+  border-radius: 40px;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  min-width: 160px;
+  min-width: unset;
   margin-top: 1rem;
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  line-height: 1.2;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .back-btn:hover {
-  transform: scale(1.02);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.back-btn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .background-image {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 55%;
-  height: 60vh;
+  width: 50%;
+  height: 45vh;
   background: url('/contact_background_women.png') no-repeat;
-  background-size: contain;
-  background-position: bottom left;
+  background-size: cover;
+  background-position: top center;
   z-index: 1;
   pointer-events: none;
 }
