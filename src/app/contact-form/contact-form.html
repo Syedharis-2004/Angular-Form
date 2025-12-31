@@ -1,0 +1,71 @@
+<div class="contact-container">
+  <header>
+    <div class="logo">Wix</div>
+    <h1>Contact Us Page</h1>
+  </header>
+
+  <main class="form-section">
+    <div class="form-card">
+      <div class="form-content">
+        <form (ngSubmit)="onSubmit()">
+          <div class="input-group">
+            <label for="fullName">Full Name</label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              [(ngModel)]="formData.fullName"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" [(ngModel)]="formData.email" required />
+          </div>
+
+          <div class="input-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              [(ngModel)]="formData.message"
+              rows="1"
+              required
+            ></textarea>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="submit-btn">Contact Us</button>
+            <button type="button" class="query-btn" (click)="navigateToQuery()">Query</button>
+          </div>
+        </form>
+
+        <div class="info-sidebar">
+          <div class="info-item">
+            <h3>Contact</h3>
+            <p><a href="mailto:hi@fashion.com">hi@fashion.com</a></p>
+          </div>
+
+          <div class="info-item">
+            <h3>Based in</h3>
+            <p>
+              San Francisco, <br />
+              California
+            </p>
+          </div>
+
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="background-image">
+    <!-- Image will be handled in CSS -->
+  </div>
+</div>

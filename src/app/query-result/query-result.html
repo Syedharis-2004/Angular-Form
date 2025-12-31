@@ -1,0 +1,47 @@
+<div class="query-container">
+  <header>
+    <div class="logo">Wix</div>
+    <h1>Query Results</h1>
+  </header>
+
+  <main class="result-section">
+    <div class="results-container" *ngIf="queries.length > 0; else noData">
+      <h2 style="text-align: right; margin-bottom: 2rem; font-size: 1.5rem; font-weight: 400;">Submitted Information: {{queries.length}}</h2>
+      
+      <div class="result-card" *ngFor="let query of queries; let i = index">
+        <h2>Entry #{{ i + 1 }}</h2>
+        
+        <div class="info-grid">
+          <div class="info-row">
+            <span class="label">Full Name</span>
+            <span class="value">{{ query.fullName }}</span>
+          </div>
+          
+          <div class="info-row">
+            <span class="label">Email</span>
+            <span class="value">{{ query.email }}</span>
+          </div>
+          
+          <div class="info-row">
+            <span class="label">Message</span>
+            <span class="value">{{ query.message }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: right;">
+        <button class="back-btn" (click)="goBack()">Back to Form</button>
+      </div>
+    </div>
+
+    <ng-template #noData>
+      <div class="result-card">
+        <h2>No Data Available</h2>
+        <p style="text-align: left;">Please fill out the contact form first.</p>
+        <button class="back-btn" (click)="goBack()">Go to Form</button>
+      </div>
+    </ng-template>
+  </main>
+
+  <div class="background-image"></div>
+</div>
