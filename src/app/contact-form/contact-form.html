@@ -87,6 +87,16 @@
         </div>
       </div>
     </div>
+
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" *ngIf="showSuccessModal">
+      <div class="modal-content">
+        <h2>Success!</h2>
+        <p>Thank you! Your query has been submitted.</p>
+        <button class="modal-btn" (click)="closeModal()">OK</button>
+      </div>
+    </div>
   </main>
 
   <div class="background-image">

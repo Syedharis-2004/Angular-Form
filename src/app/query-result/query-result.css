@@ -10,7 +10,7 @@
 .query-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 4rem 2rem 0;
+  /*padding: 4rem 2rem 0;*/
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -149,10 +149,11 @@ h1 {
   background-position: top center;
   z-index: 1;
   pointer-events: none;*/
-  margin-top: -16vh;
+  align-items: flex-end;
+  /*margin-top: -16vh;*/
   margin-left: -10px;
   width:60%;
-  height: 50vh;
+  height: 60vh;
   background: url('/contact_background_women.png') no-repeat;
   background-size: cover;
   background-position: top center;
@@ -161,32 +162,51 @@ h1 {
 }
 
 /* Responsive adjustments */
+/* Responsive adjustments */
+
+/* Extra Large Screens */
+@media (min-width: 1441px) {
+  .query-container {
+      max-width: 1600px;
+      padding-top: 6rem;
+  }
+  h1 { font-size: 7rem; }
+}
+
+/* Laptops / Small Desktops */
+@media (max-width: 1200px) {
+  h1 { font-size: 5rem; }
+}
+
+/* Tablets (Landscape) */
 @media (max-width: 1024px) {
   .query-container {
     padding: 6rem 2rem 0;
   }
-
   h1 {
     font-size: 4.5rem;
   }
-
   .result-section {
     padding-right: 0;
     justify-content: center;
     align-items: center;
   }
-  
   .background-image {
     width: 40%;
   }
 }
 
+/* Tablets (Portrait) */
+@media (max-width: 900px) {
+    /* Adjust table container max width if needed */
+}
+
+/* Mobile Devices (Large) */
 @media (max-width: 768px) {
   .query-container {
     padding: 1rem;
     padding-top: 5rem;
   }
-
   .logo {
     position: absolute;
     top: 1.5rem;
@@ -195,23 +215,23 @@ h1 {
     margin: 0;
     text-align: center;
   }
-
   h1 {
     font-size: 3rem;
     letter-spacing: -1px;
   }
-  
   .result-section {
     width: 100%;
     align-items: center;
   }
-  
   .back-btn {
     width: 100%;
-    padding: 1rem;
+    height: auto;
+    min-height: 50px;
+    padding: 1rem 0;
+    border-radius: 10px;
+    font-size: 0.95rem;
     text-align: center;
   }
-
   .background-image {
     width: 100%;
     height: 30vh;
@@ -226,15 +246,23 @@ h1 {
   }
 }
 
+/* Mobile (Standard) */
 @media (max-width: 480px) {
   h1 {
     font-size: 2.2rem;
   }
-  
   .background-image {
     height: 25vh;
   }
+}
 
-  /* Force stack table for very small screens if needed, 
-     or just keep scroll (current approach) */
+/* Mobile (Small) */
+@media (max-width: 350px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    .query-table th, .query-table td {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
 }

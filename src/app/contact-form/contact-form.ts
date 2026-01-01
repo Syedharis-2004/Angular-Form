@@ -17,6 +17,11 @@ export class ContactFormComponent {
     email: '',
     message: '',
   };
+  showSuccessModal = false;
+
+  closeModal() {
+    this.showSuccessModal = false;
+  }
 
   constructor(private router: Router, private formDataService: FormDataService) {}
 
@@ -25,7 +30,8 @@ export class ContactFormComponent {
     if (form.valid) {
       this.formDataService.addQuery({ ...this.formData });
       console.log('Form Saved!', this.formData);
-      alert('Thank you! Your query has been submitted.');
+      
+      this.showSuccessModal = true;
       
       // Reset form
       form.resetForm();
