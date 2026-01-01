@@ -6,23 +6,16 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class FormDataService {
   private queries: any[] = [];
-  private isBrowser: boolean;
+  // private isBrowser: boolean; // Not needed if we don't use localStorage
 
   constructor(@Inject(PLATFORM_ID) platformId: Object) {
-    this.isBrowser = isPlatformBrowser(platformId);
-    if (this.isBrowser) {
-      const saved = localStorage.getItem('formQueries');
-      if (saved) {
-        this.queries = JSON.parse(saved);
-      }
-    }
+    // this.isBrowser = isPlatformBrowser(platformId);
+    // localStorage logic removed
   }
 
   addQuery(data: any) {
     this.queries.push(data);
-    if (this.isBrowser) {
-      localStorage.setItem('formQueries', JSON.stringify(this.queries));
-    }
+    // localStorage logic removed
   }
 
   getData() {
@@ -31,8 +24,5 @@ export class FormDataService {
 
   clearData() {
     this.queries = [];
-    if (this.isBrowser) {
-      localStorage.removeItem('formQueries');
-    }
   }
 }

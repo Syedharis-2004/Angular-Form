@@ -10,7 +10,7 @@
 .contact-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 4rem 2rem 0;
+  /*padding: 4rem 2rem 0;*/
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -54,7 +54,7 @@ h1 {
   border: 2px solid #050304;
   padding: 4rem;
   width: 100%;
-  max-width: 650px;
+  max-width: 800px;
   /* Removed fixed height to allow content to grow */
   box-shadow: none;
   position: relative;
@@ -90,6 +90,18 @@ h1 {
   font-size: 1.1rem;
   color: #000;
   font-family: inherit;
+}
+
+.input-group input.ng-invalid.ng-touched,
+.input-group textarea.ng-invalid.ng-touched {
+  border-bottom-color: #d93025;
+}
+
+.error-message {
+  color: #d93025;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  display: block;
 }
 
 .actions {
@@ -190,11 +202,10 @@ h1 {
 }
 
 .background-image {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 50%;
-  height: 45vh;
+  margin-top: -16vh;
+  margin-left: -10px;
+  width:60%;
+  height: 50vh;
   background: url('/contact_background_women.png') no-repeat;
   background-size: cover;
   background-position: top center;

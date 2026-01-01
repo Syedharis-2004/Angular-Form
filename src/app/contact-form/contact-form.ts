@@ -20,20 +20,26 @@ export class ContactFormComponent {
 
   constructor(private router: Router, private formDataService: FormDataService) {}
 
-  onSubmit() {
-    if (this.formData.fullName && this.formData.email && this.formData.message) {
+  onSubmit(form: any) {
+    console.log('onSubmit called', form);
+    if (form.valid) {
       this.formDataService.addQuery({ ...this.formData });
       console.log('Form Saved!', this.formData);
       alert('Thank you! Your query has been submitted.');
       
       // Reset form
+      form.resetForm();
       this.formData = {
         fullName: '',
         email: '',
         message: '',
       };
     } else {
-      alert('Please fill out all fields.');
+      // Mark all controls as touched to trigger error messages
+      Object.keys(form.controls).forEach(key => {
+        form.controls[key].markAsTouched();
+      });
+      alert('Please correct the errors in the form.');
     }
   }
 

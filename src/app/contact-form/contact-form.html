@@ -7,7 +7,7 @@
   <main class="form-section">
     <div class="form-card">
       <div class="form-content">
-        <form (ngSubmit)="onSubmit()">
+        <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
           <div class="input-group">
             <label for="fullName">Full Name</label>
             <input
@@ -16,12 +16,30 @@
               name="fullName"
               [(ngModel)]="formData.fullName"
               required
+              pattern="[a-zA-Z\s]*"
+              #fullNameRef="ngModel"
             />
+            <div *ngIf="fullNameRef.invalid && (fullNameRef.dirty || fullNameRef.touched)" class="error-message">
+              <span *ngIf="fullNameRef.errors?.['required']">Full Name is required.</span>
+              <span *ngIf="fullNameRef.errors?.['pattern']">Only letters and spaces are allowed.</span>
+            </div>
           </div>
 
           <div class="input-group">
             <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" [(ngModel)]="formData.email" required />
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              [(ngModel)]="formData.email" 
+              required 
+              email
+              #emailRef="ngModel"
+            />
+            <div *ngIf="emailRef.invalid && (emailRef.dirty || emailRef.touched)" class="error-message">
+              <span *ngIf="emailRef.errors?.['required']">Email is required.</span>
+              <span *ngIf="emailRef.errors?.['email']">Please enter a valid email address.</span>
+            </div>
           </div>
 
           <div class="input-group">
@@ -32,7 +50,13 @@
               [(ngModel)]="formData.message"
               rows="1"
               required
+              minlength="10"
+              #messageRef="ngModel"
             ></textarea>
+            <div *ngIf="messageRef.invalid && (messageRef.dirty || messageRef.touched)" class="error-message">
+              <span *ngIf="messageRef.errors?.['required']">Message is required.</span>
+              <span *ngIf="messageRef.errors?.['minlength']">Message must be at least 10 characters long.</span>
+            </div>
           </div>
 
           <div class="actions">
