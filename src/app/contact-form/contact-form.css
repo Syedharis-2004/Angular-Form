@@ -4,6 +4,7 @@
   background-color: #f2ede4; /* beige background */
   font-family: 'Inter', sans-serif;
   color: #000;
+  overflow-x: hidden;
 }
 
 
@@ -466,6 +467,7 @@ h1 {
     width: 100%;
     justify-content: center;
     box-sizing: border-box;
+    margin-left: -25px;
   }
 }
 
