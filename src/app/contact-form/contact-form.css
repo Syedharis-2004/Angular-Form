@@ -353,7 +353,7 @@ h1 {
 /* Mobile Devices (Large) */
 @media (max-width: 768px) {
   .contact-container {
-    padding: 1rem 0 1rem 1rem; /* Remove right padding to align flush right */
+    padding: 1rem;
     padding-top: 5rem;
   }
   .logo {
@@ -372,14 +372,13 @@ h1 {
   .form-section {
     padding: 0;
     width: 100%;
-    justify-content: flex-end; /* Explicitly ensure flex-end */
+    justify-content: center;
   }
   .form-card {
     padding: 1.5rem;
     border-width: 1.5px;
-    width: 85%; /* Narrower to show alignment clearly */
-    margin-left: auto; /* Push to right */
-    margin-right: 0;
+    width: 100%;
+    margin: 0 auto;
     border-radius: 0;
   }
   
@@ -478,6 +477,7 @@ h1 {
     }
     h1 {
         font-size: 1.8rem;
+        text-align: center;
     }
     .social-icons {
         gap: 0.5rem;

@@ -75,6 +75,7 @@ h1 {
   border-collapse: collapse;
   font-family: inherit;
   font-size: 1rem;
+  border: 1px solid #000;
 }
 
 .query-table th,
